@@ -10,15 +10,14 @@ const connect = function () {
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
-  conn.on("event name", functionThatDoesSomething);
-
-  conn.on("event name", () => {
-    // code that does something
+  conn.on("name", (name) => {
+    console.log("Server says: ", name);
   });
 
   conn.on("connect", () => {
-    // code that does something when the connection is first established
+    conn.write("Hello from client!");
   });
+
 
   return conn;
 };
